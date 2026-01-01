@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+.main{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(2px);
+}
+
+.formcontainer{
+    width: 60%;
+    z-index: 9999;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 50px;
+    padding: 5rem;
+    border-radius: 7px;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    background-color: #ffffff0b;
+    backdrop-filter: blur(5px);   
+}
+
+.formcontainer h1{
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 2.5rem;
+    
+}
+
+form{
+    padding-top: 2rem;
+}
+
+.fields{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border: 0;
+    border-radius: 7px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 0px -18px inset;
+    color: #ffffff;
+    background-color: #ffffff50;
+    backdrop-filter: blur(5px);
+}
+
+input:focus, textarea:focus {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); 
+    outline: none; 
+  }
+
+  .fields::placeholder { 
+    color: #ffffff;
+    opacity: 1; 
+  }
+  
+  .fields::-webkit-input-placeholder { 
+    color: #ffffff;
+  }
+
+.button-48 {
+  width: 100%;
+  appearance: none;
+  background-color: #FFFFFF;
+  border-width: 0;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1em;
+  margin-top: 1.5rem;
+  opacity: 1;
+  outline: 0;
+  padding: 1.5em 2.2em;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-rendering: geometricprecision;
+  text-transform: uppercase;
+  transition: opacity 300ms cubic-bezier(.694, 0, 0.335, 1),background-color 100ms cubic-bezier(.694, 0, 0.335, 1),color 100ms cubic-bezier(.694, 0, 0.335, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border-radius: 7px;
+}
+
+.button-48:before {
+  animation: opacityFallbackOut .5s step-end forwards;
+  backface-visibility: hidden;
+  background-color: #EBEBEB;
+  clip-path: polygon(-1% 0, 0 0, -25% 100%, -1% 100%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateZ(0);
+  transition: clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1), -webkit-clip-path .5s cubic-bezier(.165, 0.84, 0.44, 1);
+  width: 100%;
+}
+
+.button-48:hover:before {
+  animation: opacityFallbackIn 0s step-start forwards;
+  clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+}
+
+.button-48:after {
+  background-color: #FFFFFF;
+}
+
+.button-48 span {
+  z-index: 1;
+  position: relative;
+}

@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Early Detection of CHF</title>
+    <link rel="stylesheet" href="./index.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="formcontainer">
+        <h1>Cost Benefit for Detection of CHF</h1>
+        <p>ML solution for cost benefit</p>
+        <form action="" method="POST">
+            <label for="asin">True Positives:</label><br><br>
+            <input type="text" class="fields" id="tp" name="url" placeholder="Enter your TP" required>
+
+            <label for="asin">False Positives:</label><br><br>
+            <input type="text" class="fields" id="fp" name="url" placeholder="Enter your FP" required>
+
+            <label for="asin">False Negative:</label><br><br>
+            <input type="text" class="fields" id="fn" name="url" placeholder="Enter your FN" required>
+
+            <label for="asin">Amount Saved by Detection of CHF:</label><br><br>
+            <input type="text" class="fields" id="saved" name="url" placeholder="Enter your Saved Amount" required>
+
+            <label for="asin">Cost of Unnecessary Testing:</label><br><br>
+            <input type="text" class="fields" id="uncost" name="url" placeholder="Enter your Cost" required>
+
+            <label for="asin">Cost of Hospitalization due to missed CHF:</label><br><br>
+            <input type="text" class="fields" id="hospcost" name="url" placeholder="Enter your Hospitalization Cost" required>
+
+            <label for="asin">Number of Patients:</label><br><br>
+            <input type="text" class="fields" id="np" name="url" placeholder="Enter Number of Patients" required>
+
+            <label for="asin">Net Benefit:</label><br><br>
+            <input type="text" class="fields" id="nb" name="url" placeholder="" readonly>
+
+            <label for="asin">Amount Saved by Implementing XGBoost:</label><br><br>
+            <input type="text" class="fields" id="amtsaved" name="url" placeholder="" readonly>
+
+            <button type="button" id="calc" class="button-48" role="button"><span class="text">Calculate</span></button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+        const button = document.getElementById('calc');
+        const tp = document.getElementById('tp');
+        const fp = document.getElementById('fp');
+        const fn = document.getElementById('fn');
+        const saved = document.getElementById('saved');
+        const uncost = document.getElementById('uncost');
+        const hospcost = document.getElementById('hospcost');
+        const np = document.getElementById('np');
+        const nb = document.getElementById('nb');
+        const amtsaved = document.getElementById('amtsaved');
+
+        button.addEventListener('click', function() {
+            const val1 = Number(tp.value);
+            const val2 = Number(saved.value);
+            const val3 = Number(fp.value);
+            const val4 = Number(uncost.value);
+            const val5 = Number(fn.value);
+            const val6 = Number(hospcost.value);
+            const val7 = Number(np.value);
+
+            const total = (val1 * val2) - (val3 * val4) - (val5 * val6);
+            nb.value = total;
+
+            const totalcost = (val2 * val7) + (val6 * val7)
+
+            const perc = total / totalcost * 100
+            amtsaved.value = perc.toFixed(2) + "%";
+        });
+    </script>
+</html>
