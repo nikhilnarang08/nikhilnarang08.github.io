@@ -78,7 +78,8 @@
             const totalcost = (val2 * val7) + (val6 * val7)
 
             const perc = total / totalcost * 100
-            amtsaved.value = perc.toFixed(2) + "%";
+            let positiveResult = Math.abs(perc);
+            amtsaved.value = positiveResult.toFixed(2) + "%";
         });
     </script>
 </html>

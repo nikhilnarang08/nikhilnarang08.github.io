@@ -55,7 +55,8 @@
             amtsaved.value = form;
 
             const perc = (form / val3) * 100;
-            pols.value = perc.toFixed(2) + "%";
+            let positiveResult = Math.abs(perc);
+            pols.value = positiveResult.toFixed(2) + "%";
         });
     </script>
 </html>
