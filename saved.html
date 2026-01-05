@@ -1,0 +1,61 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Life Saved</title>
+    <link rel="stylesheet" href="./css/saved.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <div class="main">
+      <div class="formcontainer">
+        <h1>Number of Life Saved</h1>
+        <p>Calculation for number of life saved</p>
+        <form action="" method="POST">
+            <label for="asin">Actual Misdiagnosis:</label>
+            <input type="text" class="fields" id="ad" name="url" placeholder="Enter Misdiagnosis" required><br><br>
+
+            <label for="asin">False Negative (Missed Cases Detected from Model):</label>
+            <input type="text" class="fields" id="fn" name="url" placeholder="Enter FN" required><br><br>
+
+            <label for="asin">Number of Patients:</label>
+            <input type="text" class="fields" id="np" name="url" placeholder="Enter Number of Patients" required><br><br>
+
+            <label for="asin">Life Saved:</label>
+            <input type="text" class="fields" id="lsaved" name="url" placeholder="" style="font-weight: 600;" readonly><br><br>
+
+            <label for="asin">Percentage of Life Saved:</label>
+            <input type="text" class="fields" id="pols" name="url" placeholder="" style="font-weight: 600;" readonly><br><br>
+
+            <button type="button" id="calc" class="button-48" role="button"><span class="text">Calculate</span></button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <script>
+        const button = document.getElementById('calc');
+        const ad = document.getElementById('ad');
+        const fn = document.getElementById('fn');
+        const amtsaved = document.getElementById('lsaved');
+        const pols = document.getElementById('pols');
+
+        button.addEventListener('click', function() {
+            const val1 = Number(ad.value);
+            const val2 = Number(fn.value);
+            const val3 = Number(np.value);
+
+            const form = (val1 - val2) * 0.5;
+            amtsaved.value = form;
+
+            const perc = (form / val3) * 100;
+            pols.value = perc.toFixed(2) + "%";
+        });
+    </script>
+</html>
